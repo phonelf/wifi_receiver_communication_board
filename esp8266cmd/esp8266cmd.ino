@@ -7,8 +7,10 @@
 #ifndef STASSID
 //#define STASSID "iPhone"
 //#define STAPSK "122334567vicki"
-#define STASSID "BenQ"
-#define STAPSK "00000000"
+//#define STASSID "BenQ"
+//#define STAPSK "00000000"
+#define STASSID "ASUS"
+#define STAPSK "79568d4ea14e"
 #endif
 #define FLCpin1 16
 //d0
@@ -90,6 +92,7 @@ void setup()
     motor1.attach(PWMout1);
     motor2.attach(PWMout2);
     motor3.attach(PWMout3);
+    client.println(millis());
 }
 
 void loop()
@@ -163,11 +166,13 @@ void loop()
             motor3.writeMicroseconds(str4.toInt());
 
             //Serial.println("!!");
+            client.println(millis());
         }
         else
         {
         }
     }
 
-    client.println(str1 + "," + str2 + "," + str3 + "," + str4);
+    //client.println(str1 + "," + str2 + "," + str3 + "," + str4);
+    //delay(100);
 }
